@@ -1,0 +1,44 @@
+version: 1
+active_chain: casual-shadow
+chains:
+- name: casual-shadow
+  profile: casual_shadow
+  description: Tor-only cloak
+  hops:
+  - id: tor-local
+    type: tor
+    host: 127.0.0.1
+    port: 9050
+    username: null
+    password: null
+    options: {}
+    enabled: true
+    weight: 1.0
+    label: Tor (local SOCKS)
+    country: null
+  policy:
+    min_hops: 1
+    max_hops: 3
+    rotation_minutes: 0
+    health_check_seconds: 30
+    kill_switch: true
+    strict_kill_switch: false
+    block_ipv6: true
+    dns_leak_protection: true
+    webrtc_block_hint: true
+    randomize_order: false
+    decoy_traffic: false
+    decoy_interval_seconds: 60
+    fail_closed: true
+  split_tunnel: []
+  tags: []
+listen_host: 127.0.0.1
+listen_port: 1080
+control_port: 8742
+noir_mode: true
+log_level: INFO
+encrypt_logs: true
+auto_start: false
+community_sharing: false
+telemetry_opt_in: false
+accepted_legal_notice: true

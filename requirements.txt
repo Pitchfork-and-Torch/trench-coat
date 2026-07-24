@@ -1,0 +1,16 @@
+# Trench Coat — runtime dependencies
+click>=8.1
+rich>=13.7
+pydantic>=2.6
+pydantic-settings>=2.2
+httpx[socks]>=0.27
+python-socks[asyncio]>=2.4
+aiohttp>=3.9
+aiohttp-socks>=0.8
+pyyaml>=6.0
+cryptography>=42.0
+platformdirs>=4.2
+psutil>=5.9
+fastapi>=0.110
+uvicorn[standard]>=0.27
+websockets>=12.0

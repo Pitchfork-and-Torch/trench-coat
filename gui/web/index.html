@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TRENCH COAT — Command Nexus</title>
+  <link rel="stylesheet" href="/src/styles/noir.css" />
+</head>
+<body>
+  <div class="rain" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div id="live-region" class="sr-only" role="status" aria-live="polite"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="coat-icon" aria-hidden="true"></div>
+      <div>
+        <h1>TRENCH COAT</h1>
+        <p class="tagline">COMMAND NEXUS 2.0 · THE SHADOWS ARE YOUR ALLY</p>
+      </div>
+    </div>
+    <div class="status-pill" id="status-pill">OFFLINE</div>
+  </header>
+
+  <div class="action-bar" role="toolbar" aria-label="Cloak actions">
+    <button type="button" id="btn-legal" class="btn">Accept Legal</button>
+    <button type="button" id="btn-engage" class="btn primary">Engage Cloak</button>
+    <button type="button" id="btn-newnym" class="btn">Tor NEWNYM</button>
+    <button type="button" id="btn-doctor" class="btn">Run Doctor</button>
+    <span id="action-toast" class="toast" role="status"></span>
+  </div>
+
+  <main class="layout">
+    <section class="panel city-map" aria-labelledby="map-heading">
+      <h2 id="map-heading">CITY MAP // CIRCUIT</h2>
+      <canvas id="city" width="900" height="420" role="img"
+        aria-label="Live hop circuit visualization with health and latency"></canvas>
+      <p class="hop-summary dim" id="hop-summary">Real hop IDs and latency appear when the cloak is live.</p>
+      <p class="noir-line" id="noir-line">Rain on the glass. Waiting for the coat…</p>
+    </section>
+
+    <aside class="side">
+      <section class="panel">
+        <h2>CLOAK</h2>
+        <dl class="kv" id="cloak-kv">
+          <div><dt>Chain</dt><dd id="kv-chain">—</dd></div>
+          <div><dt>Profile</dt><dd id="kv-profile">—</dd></div>
+          <div><dt>Listen</dt><dd id="kv-listen">—</dd></div>
+          <div><dt>Kill-switch</dt><dd id="kv-ks">—</dd></div>
+          <div><dt>Fail-closed</dt><dd id="kv-fc">—</dd></div>
+          <div><dt>Latency</dt><dd id="kv-latency">—</dd></div>
+          <div><dt>Identity</dt><dd id="kv-identity">—</dd></div>
+        </dl>
+        <div class="metrics">
+          <div class="metric"><span>IN</span><strong id="m-in">0</strong></div>
+          <div class="metric"><span>OUT</span><strong id="m-out">0</strong></div>
+          <div class="metric"><span>CONN</span><strong id="m-conn">0</strong></div>
+          <div class="metric"><span>REFUSED</span><strong id="m-refused">0</strong></div>
+        </div>
+        <p class="status-messages dim" id="status-messages">—</p>
+        <pre class="doctor-summary dim" id="doctor-summary"></pre>
+      </section>
+
+      <section class="panel">
+        <h2>HOPS</h2>
+        <ul class="hop-list" id="hop-list" aria-label="Hop health list"></ul>
+      </section>
+
+      <section class="panel presets">
+        <h2>PROFILES</h2>
+        <p class="dim small">One-click activate (then Engage or <code>trench up</code>).</p>
+        <div class="preset-grid" id="preset-grid"></div>
+      </section>
+
+      <section class="panel dossiers">
+        <h2>DOSSIERS</h2>
+        <button type="button" id="btn-refresh-dossiers" class="btn small">Refresh</button>
+        <ul class="dossier-list" id="dossier-list"></ul>
+        <div id="dossier-detail" class="dossier-detail"></div>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="legal">
+    Legal-first privacy tool. Not for crime. Fail-closed by default.
+    · Point apps at <code>socks5://127.0.0.1:1080</code>
+    · <a href="http://127.0.0.1:30000/" target="_blank" rel="noopener">Ghost Continuum</a>
+  </footer>
+
+  <script src="/src/app.js" type="module"></script>
+</body>
+</html>

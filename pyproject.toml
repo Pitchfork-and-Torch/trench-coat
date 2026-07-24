@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trenchcoat"
+version = "1.0.0"
+description = "Trench Coat — digital invisibility cloak. Multi-hop proxy chaining for legitimate privacy."
+readme = "README.md"
+license = { text = "AGPL-3.0-or-later" }
+requires-python = ">=3.11"
+authors = [{ name = "Trench Coat Contributors" }]
+keywords = ["privacy", "proxy", "tor", "socks5", "anonymity", "opsec"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Intended Audience :: End Users/Desktop",
+  "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Topic :: Security",
+  "Topic :: Internet :: Proxy Servers",
+]
+dependencies = [
+  "click>=8.1",
+  "rich>=13.7",
+  "pydantic>=2.6",
+  "pydantic-settings>=2.2",
+  "httpx[socks]>=0.27",
+  "python-socks[asyncio]>=2.4",
+  "aiohttp>=3.9",
+  "aiohttp-socks>=0.8",
+  "pyyaml>=6.0",
+  "cryptography>=42.0",
+  "platformdirs>=4.2",
+  "psutil>=5.9",
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.27",
+  "websockets>=12.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-asyncio>=0.23",
+  "ruff>=0.3",
+  "mypy>=1.8",
+  "httpx>=0.27",
+]
+
+[project.scripts]
+trench = "trenchcoat.cli:main"
+trenchcoat = "trenchcoat.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Pitchfork-and-Torch/trench-coat"
+Documentation = "https://github.com/Pitchfork-and-Torch/trench-coat/tree/main/docs"
+Issues = "https://github.com/Pitchfork-and-Torch/trench-coat/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
+warn_return_any = true
+packages = ["trenchcoat"]

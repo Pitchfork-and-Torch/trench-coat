@@ -1,0 +1,12 @@
+# Trench Coat nftables sketch — REQUIRES root review before load
+# Allow loopback + established + local SOCKS 1080; block other egress when armed.
+table inet trenchcoat {
+  chain output {
+    type filter hook output priority 0; policy accept;
+    oif "lo" accept
+    ct state established,related accept
+    meta l4proto { tcp, udp } ip daddr 127.0.0.1 tcp dport 1080 accept
+    # Uncomment only after verifying unlock path:
+    # meta l4proto { tcp, udp } reject
+  }
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://trenchcoat.jonbailey.xyz/</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://trenchcoat.jonbailey.xyz/assets/og-card.png</image:loc>
+      <image:title>Trench Coat v1.0 Neon Collar</image:title>
+      <image:caption>Legal-first multi-hop privacy cloak social card</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://trenchcoat.jonbailey.xyz/assets/trench-coat-gui-online.png</image:loc>
+      <image:title>Trench Coat Command Nexus</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://trenchcoat.jonbailey.xyz/assets/trench-coat-infographic.png</image:loc>
+      <image:title>How Trench Coat works</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://trenchcoat.jonbailey.xyz/llms.txt</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trenchcoat.jonbailey.xyz/robots.txt</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://trenchcoat.jonbailey.xyz/assets/og-card.png</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://trenchcoat.jonbailey.xyz/assets/trench-coat-gui-online.png</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trenchcoat.jonbailey.xyz/assets/trench-coat-infographic.png</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trenchcoat.jonbailey.xyz/assets/trench-coat-hero.jpg</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>

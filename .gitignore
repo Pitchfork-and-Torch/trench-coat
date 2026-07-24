@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+.env
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+htmlcov/
+.coverage
+*.cover
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Trench Coat runtime
+*.session.json
+sessions/
+.trenchcoat/
+.tor-data/
+*.log
+scripts/_*.txt
+scripts/_mock_socks.py
+.shot-tools/
+landing/.wrangler/
+
+# Node / Tauri / packaging
+node_modules/
+gui/web/dist/
+gui/tauri/target/
+packaging/out/
+*.AppImage
+*.dmg
+*.exe
+!scripts/**
+
+# Secrets — never commit
+*.pem
+*.key
+wg*.conf
+*credentials*
+config.local.yaml
+
+# local helpers
+scripts/_*.py
+
+
+scripts/_live_up_*
+
