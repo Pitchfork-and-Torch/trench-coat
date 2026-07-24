@@ -3,7 +3,7 @@
  * Collapsed up-arrow tab → expands to sibling project links.
  * Safe to load on every public site; hides the current project.
  *
- * v9 — Bias Noticer landing + quieter on music site
+ * v10 — NetForge landing + Bias Noticer + quieter on music site
  */
 (function () {
   'use strict';
@@ -77,6 +77,15 @@
       url: 'https://trenchcoat.jonbailey.xyz/',
       isHere: function (h, p) {
         return /^trenchcoat\.jonbailey\.xyz$/i.test(h) || /trench[-_]?coat/i.test(h + p);
+      },
+    },
+    {
+      id: 'netforge',
+      name: 'NetForge',
+      blurb: 'Host DNS/TCP forge',
+      url: 'https://netforge.jonbailey.xyz/',
+      isHere: function (h, p) {
+        return /^netforge\.jonbailey\.xyz$/i.test(h) || /netforge/i.test(h + p);
       },
     },
     {
