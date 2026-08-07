@@ -1,0 +1,392 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trench Coat - Legal-First Multi-Hop Privacy Cloak</title>
+  <meta name="description" content="Trench Coat chains Tor, SOCKS5, and self-hosted relays through a local SOCKS entry. Fail-closed privacy for journalists, researchers, and everyday opsec. Open source AGPL. Velvet Collar v1.1." />
+  <meta name="keywords" content="privacy, Tor, SOCKS5, multi-hop proxy, opsec, anonymity, kill switch, open source, Trench Coat" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="Pitchfork-and-Torch" />
+  <meta name="theme-color" content="#0a0b14" />
+  <link rel="canonical" href="https://trenchcoat.jonbailey.xyz/" />
+  <link rel="alternate" type="text/plain" title="LLM / answer-engine summary" href="https://trenchcoat.jonbailey.xyz/llms.txt" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://trenchcoat.jonbailey.xyz/sitemap.xml" />
+  <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/assets/trench-coat-mark.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+  <link rel="preload" href="/fonts/fontshare/fonts.css" as="style" />
+  <link rel="stylesheet" href="/fonts/fontshare/fonts.css" />
+  <link rel="stylesheet" href="/assets/site.css?v=1.1.0" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Trench Coat" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Trench Coat - The shadows are your ally" />
+  <meta property="og:description" content="Legal-first multi-hop privacy cloak. Fail-closed chains, Tor-aware CLI, Command Nexus. Open source AGPL  |  v1.1 Velvet Collar." />
+  <meta property="og:url" content="https://trenchcoat.jonbailey.xyz/" />
+  <meta property="og:image" content="https://trenchcoat.jonbailey.xyz/assets/og-card.png?v=1.1.0" />
+  <meta property="og:image:secure_url" content="https://trenchcoat.jonbailey.xyz/assets/og-card.png?v=1.1.0" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Trench Coat v1.1 Velvet Collar - legal-first multi-hop privacy cloak" />
+
+  <!-- X / Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@SafeDepositOrg" />
+  <meta name="twitter:creator" content="@SafeDepositOrg" />
+  <meta name="twitter:title" content="Trench Coat - The shadows are your ally" />
+  <meta name="twitter:description" content="Legal-first multi-hop privacy cloak. Fail-closed  |  Tor-aware  |  open source AGPL. v1.1 Velvet Collar." />
+  <meta name="twitter:image" content="https://trenchcoat.jonbailey.xyz/assets/og-card.png?v=1.1.0" />
+  <meta name="twitter:image:alt" content="Trench Coat v1.1 Velvet Collar - privacy cloak social card" />
+  <meta name="twitter:url" content="https://trenchcoat.jonbailey.xyz/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Trench Coat",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Windows, Linux, macOS",
+    "softwareVersion": "1.1.0",
+    "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+    "url": "https://trenchcoat.jonbailey.xyz/",
+    "downloadUrl": "https://github.com/Pitchfork-and-Torch/trench-coat",
+    "codeRepository": "https://github.com/Pitchfork-and-Torch/trench-coat",
+    "description": "Legal-first multi-hop privacy cloak that routes traffic through Tor and SOCKS chains via a local SOCKS5 entry with fail-closed kill-switch.",
+    "image": "https://trenchcoat.jonbailey.xyz/assets/og-card.png",
+    "screenshot": "https://trenchcoat.jonbailey.xyz/assets/command-nexus-velvet.png",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Organization", "name": "Pitchfork-and-Torch", "url": "https://github.com/Pitchfork-and-Torch" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Trench Coat?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Trench Coat is an open-source privacy tool that runs a local SOCKS5 entry and chains traffic through hops such as Tor, commercial VPN SOCKS endpoints, and self-hosted relays. It is legal-first and fail-closed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Trench Coat replace a VPN or Tor Browser?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. It orchestrates hops you already run. Start Tor or a VPN SOCKS listener, then point apps at socks5://127.0.0.1:1080. Tor Browser remains ideal for browser isolation; Trench Coat is for multi-app chaining and opsec profiles."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Trench Coat legal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Trench Coat is intended for legitimate privacy: reducing ISP tracking, resisting censorship, and protecting journalists and ordinary users. It is not a crime toolkit. Users must comply with local law."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I verify I am on Tor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Run trench check-ip or curl --socks5-hostname 127.0.0.1:1080 https://check.torproject.org/api/ip and confirm IsTor is true."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does fail-closed mean?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If the hop chain dies, the local cloak entry refuses new CONNECT requests instead of silently sending traffic clearnet. Soft isolation is SOCKS-layer; hard kill-switch is opt-in OS firewall rules with undo-first scripts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Trench Coat phone home?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No mandatory telemetry. Optional opt-in chain quality stats only. Configs and session dossiers stay local unless you export them."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does Trench Coat not protect?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It does not protect against malware on your device, browser fingerprinting by itself, or adversaries with endpoint access. It is not a secure messenger. Apps that ignore the SOCKS proxy are not cloaked."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="rain-canvas" aria-hidden="true"></canvas>
+
+  <main id="main" class="wrap">
+    <header class="hero">
+      <p class="kicker">The shadows are your ally</p>
+      <img
+        class="mark"
+        src="/assets/trench-coat-mark.png"
+        width="120"
+        height="120"
+        alt="Trench Coat mark - ink watercolor coat silhouette"
+      />
+      <h1>Trench Coat</h1>
+      <p class="sub">v1.1.0  |  Velvet Collar  |  Legal-first privacy</p>
+      <p class="lede">
+        A precision multi-hop privacy cloak for journalists, researchers, activists, and
+        careful professionals. Chain Tor, SOCKS5, and self-hosted relays through a local
+        entry - <strong>fail-closed</strong> when the chain dies. Not a crime toolkit.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#quick-start">Quick start</a>
+        <a class="btn" href="https://github.com/Pitchfork-and-Torch/trench-coat" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn" href="#how">How the cloak works</a>
+      </div>
+    </header>
+
+    <section class="panel reveal" aria-label="Hero atmosphere">
+      <span class="eyebrow">Atmosphere</span>
+      <h2>Quiet power in the rain</h2>
+      <img
+        class="shot"
+        src="/assets/trench-coat-hero.jpg"
+        width="1600"
+        height="900"
+        alt="Watercolor film-noir rainy night street with a trench coat silhouette"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <p class="caption">Hand-crafted noir illustration language for Velvet Collar - protective, atmospheric, never neon spectacle.</p>
+    </section>
+
+    <section class="panel reveal" aria-label="Command Nexus">
+      <span class="eyebrow">Control surface</span>
+      <h2>Command Nexus</h2>
+      <img
+        class="shot"
+        src="/assets/command-nexus-velvet.png?v=1.1.0"
+        width="1600"
+        height="900"
+        alt="Trench Coat Command Nexus in Velvet Collar theme: cloaked status, hop latency, city map"
+        loading="lazy"
+      />
+      <p class="caption">
+        Local control surface: hop health, fail-closed status, one-click profiles, session dossiers.
+        Run <code>trench gui</code> to http://127.0.0.1:8742
+      </p>
+    </section>
+
+    <section class="panel reveal" id="how" aria-label="How the cloak works">
+      <span class="eyebrow">Observability</span>
+      <h2>How the cloak works</h2>
+      <p>
+        Trench Coat is a <strong style="color:var(--text)">local orchestrator</strong>, not a remote VPN brand
+        and not Tor Browser. You run hops you trust (often Tor); apps point at one local entry.
+      </p>
+      <ol class="steps">
+        <li><strong>Apps</strong> send traffic to <code>socks5://127.0.0.1:1080</code> (the cloak entry).</li>
+        <li><strong>Trench Coat</strong> nests that traffic through your hop chain (e.g. VPN SOCKS â†’ Tor).</li>
+        <li><strong>Egress</strong> reaches the open net from the last hop's identity.</li>
+        <li><strong>Fail-closed:</strong> if all hops die, new CONNECTs are refused - no silent clearnet via the cloak.</li>
+        <li><strong>Verify:</strong> <code>trench doctor</code> â†’ <code>trench up --accept-legal</code> â†’ <code>trench check-ip</code>.</li>
+      </ol>
+      <table class="obs">
+        <thead>
+          <tr><th>Observer</th><th>Typically sees</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>LAN / ISP</td><td>Traffic to your first hop only (not full destination list)</td></tr>
+          <tr><td>Intermediate hop</td><td>Adjacent links - diversify operators</td></tr>
+          <tr><td>Website</td><td>Exit IP + your app/browser fingerprint</td></tr>
+          <tr><td>Endpoint malware</td><td>Everything - out of scope; OS hygiene required</td></tr>
+        </tbody>
+      </table>
+      <p class="caption warn">
+        Not a Tor Browser replacement for isolated browsing. Not anonymity against a nation-state with endpoint access. Not for crime.
+      </p>
+      <img
+        class="shot"
+        style="margin-top:1rem"
+        src="/assets/how-cloak-works-velvet.png?v=1.1.0"
+        width="1600"
+        height="1100"
+        alt="How the cloak works: apps to local SOCKS entry to nested hops to egress, fail-closed"
+        loading="lazy"
+      />
+    </section>
+
+    <section class="panel reveal" aria-label="Profiles">
+      <span class="eyebrow">Threat fit</span>
+      <h2>Profiles</h2>
+      <div class="profiles">
+        <article class="profile">
+          <strong>Casual Shadow</strong>
+          <p>Tor-only default. Everyday privacy with minimal setup.</p>
+        </article>
+        <article class="profile">
+          <strong>Ghost</strong>
+          <p>VPN then Tor. Harder first-hop observation.</p>
+        </article>
+        <article class="profile">
+          <strong>Journalist</strong>
+          <p>Self-hosted â†’ VPN â†’ Tor posture for field work.</p>
+        </article>
+        <article class="profile">
+          <strong>Whistleblower / Paranoid</strong>
+          <p>Longer chains, stricter policy - latency trades for separation.</p>
+        </article>
+      </div>
+      <p class="caption">
+        Soft kill-switch = SOCKS refuse-direct. Hard kill-switch = opt-in OS firewall (undo script written first).
+        Signed Windows WFP is not claimed yet. Doctor now warns on residual hard rules and guides Windows Tor egress allow-lists.
+      </p>
+      <img
+        class="shot"
+        style="margin-top:1rem"
+        src="/assets/profiles-icons.jpg"
+        width="1024"
+        height="1024"
+        alt="Ink and watercolor profile motifs for Casual Shadow, Ghost, Journalist, and Paranoid postures"
+        loading="lazy"
+      />
+    </section>
+
+    <section class="panel reveal" id="quick-start" aria-label="Quick start">
+      <span class="eyebrow">Install</span>
+      <h2>Quick start</h2>
+      <p><strong style="color:var(--text)">Recommended:</strong> install with <code>pipx</code> for an isolated CLI, then run the first-run wizard.</p>
+      <pre># Primary path (pipx)
+pipx install git+https://github.com/Pitchfork-and-Torch/trench-coat.git
+trench first-run --accept-legal
+# start Tor (9050/9150), then:
+trench up --accept-legal --wait-tor 60
+trench check-ip
+trench gui   # http://127.0.0.1:8742
+# apps â†’ socks5://127.0.0.1:1080
+
+# Advanced: editable clone
+git clone https://github.com/Pitchfork-and-Torch/trench-coat.git
+cd trench-coat
+python -m venv .venv
+# Windows: .\.venv\Scripts\Activate.ps1
+source .venv/bin/activate
+pip install -e .
+trench first-run --accept-legal</pre>
+    </section>
+
+    <section class="panel reveal faq" aria-label="FAQ">
+      <span class="eyebrow">Answers</span>
+      <h2>FAQ</h2>
+      <details open>
+        <summary>What is Trench Coat?</summary>
+        <p>A local SOCKS orchestrator that multi-hop chains privacy proxies with fail-closed defaults. Open source (AGPL).</p>
+      </details>
+      <details>
+        <summary>Does it replace a VPN or Tor Browser?</summary>
+        <p>No. You still run Tor/VPN listeners. Tor Browser remains best for isolated browsing; Trench Coat chains hops for many apps.</p>
+      </details>
+      <details>
+        <summary>Is it legal?</summary>
+        <p>Built for legitimate privacy and opsec only. Not for crime. You own legal compliance. Run <code>trench legal</code>.</p>
+      </details>
+      <details>
+        <summary>How do I verify Tor?</summary>
+        <p><code>trench check-ip</code> or Tor Project's check API via the SOCKS entry. Expect <code>IsTor: true</code>.</p>
+      </details>
+      <details>
+        <summary>What does fail-closed actually block?</summary>
+        <p>When hops die, the cloak entry refuses CONNECT instead of dialing your real IP. Apps not using the SOCKS proxy are still direct.</p>
+      </details>
+      <details>
+        <summary>Can my real IP still leak?</summary>
+        <p>Yes - DNS/WebRTC outside the proxy, IPv6 surprises, non-proxied apps, and malware. See hardening docs. Soft â‰  full system VPN.</p>
+      </details>
+      <details>
+        <summary>Does it phone home / telemetry?</summary>
+        <p>No mandatory product telemetry. Optional opt-in chain quality only. Local-first dossiers.</p>
+      </details>
+      <details>
+        <summary>Soft vs hard kill-switch?</summary>
+        <p>Soft: refuse clearnet at the SOCKS layer. Hard: opt-in OS rules (netsh/nft/pf) with undo-first scripts. Never auto-applied without your confirm. On Windows, allow Tor.exe egress before the outbound block.</p>
+      </details>
+      <details>
+        <summary>Ghost Continuum?</summary>
+        <p>Optional companion plane (<code>trench-cloak</code>) can surface cloak health in Ghost Continuum. Separate product; see Continuum docs.</p>
+      </details>
+    </section>
+
+    <section class="panel reveal" aria-label="Docs and related">
+      <span class="eyebrow">Network</span>
+      <h2>Docs, GitHub, related projects</h2>
+      <div class="links">
+        <a href="https://github.com/Pitchfork-and-Torch/trench-coat" target="_blank" rel="noopener noreferrer">
+          <strong>Repository</strong><span>source  |  issues  |  PRs</span>
+        </a>
+        <a href="https://github.com/Pitchfork-and-Torch/trench-coat/releases" target="_blank" rel="noopener noreferrer">
+          <strong>Releases</strong><span>tags &amp; notes</span>
+        </a>
+        <a href="https://github.com/Pitchfork-and-Torch/trench-coat/blob/main/docs/BRAND.md" target="_blank" rel="noopener noreferrer">
+          <strong>Brand system</strong><span>Velvet Collar tokens</span>
+        </a>
+        <a href="https://github.com/Pitchfork-and-Torch/trench-coat/blob/main/docs/DEVELOPMENT_PLAN.md" target="_blank" rel="noopener noreferrer">
+          <strong>Development plan</strong><span>phases 0 - 7</span>
+        </a>
+        <a href="https://github.com/Pitchfork-and-Torch/trench-coat/blob/main/docs/dossiers/THREAT_MODEL.md" target="_blank" rel="noopener noreferrer">
+          <strong>Threat model</strong><span>limits &amp; non-goals</span>
+        </a>
+        <a href="https://github.com/Pitchfork-and-Torch/trench-coat/blob/main/docs/security/HARDENING.md" target="_blank" rel="noopener noreferrer">
+          <strong>Hardening</strong><span>operator runbook</span>
+        </a>
+        <a href="https://github.com/Pitchfork-and-Torch/trench-coat/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer">
+          <strong>Security policy</strong><span>private disclosure</span>
+        </a>
+        <a href="https://github.com/Pitchfork-and-Torch/ghost-continuum" target="_blank" rel="noopener noreferrer">
+          <strong>Ghost Continuum</strong><span>optional trench-cloak plane</span>
+        </a>
+        <a href="https://netforge.jonbailey.xyz/" target="_blank" rel="noopener noreferrer">
+          <strong>NetForge</strong><span>host DNS/TCP forge (Win  |  Linux  |  macOS)</span>
+        </a>
+      </div>
+    </section>
+
+    <div class="legal-strip" role="note">
+      Legal-first privacy tool only. Not a crime toolkit. Not affiliated with the Tor Project.
+      You are responsible for complying with the laws of your jurisdiction.
+    </div>
+
+    <footer class="site-footer">
+      <div>Pitchfork-and-Torch  |  AGPL-3.0  |  Velvet Collar 1.1.0</div>
+      <div class="row">
+        <a href="https://jonbailey.xyz/">jonbailey.xyz</a>
+         | 
+        <a href="https://github.com/Pitchfork-and-Torch/trench-coat">GitHub</a>
+         | 
+        <a href="https://axiom.jonbailey.xyz/">AXIOM</a>
+         | 
+        <a href="https://netforge.jonbailey.xyz/">NetForge</a>
+         | 
+        <a href="https://github.com/Pitchfork-and-Torch/GrokLink-OS">GrokLink OS</a>
+         | 
+        Privacy is a right, not a crime.
+      </div>
+    </footer>
+  </main>
+
+  <script src="/assets/site.js?v=1.1.0" defer></script>
+  <script src="/projects-panel.js?v=11" defer></script>
+</body>
+</html>
+
+

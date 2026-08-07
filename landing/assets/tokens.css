@@ -1,0 +1,40 @@
+/* Trench Coat - Velvet Collar design tokens (v1.1.0)
+ * See docs/BRAND.md
+ */
+:root {
+  --bg-deep: #0a0b14;
+  --bg: #12141f;
+  --surface: rgba(22, 24, 36, 0.72);
+  --surface-solid: #161824;
+  --surface-elevated: rgba(28, 30, 44, 0.88);
+  --border: rgba(200, 190, 170, 0.12);
+  --border-strong: rgba(200, 190, 170, 0.22);
+  --text: #e8e0d5;
+  --text-muted: #9a9388;
+  --accent: #6b8f7a;
+  --accent-soft: #8aa896;
+  --ink: #0a0b14;
+  --gold: #c9a227;
+  --gold-soft: #d4b84a;
+  --danger: #c45c6a;
+  --fog: rgba(120, 130, 160, 0.18);
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.45);
+  --shadow-lift: 0 12px 36px rgba(0, 0, 0, 0.35);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-pill: 999px;
+  --font-display: "Clash Display", "Satoshi", system-ui, sans-serif;
+  --font-sans: "Satoshi", system-ui, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "SF Mono", Consolas, monospace;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 280ms;
+  --measure: 68ch;
+  --wrap: 1080px;
+  --theme-color: #0a0b14;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur: 1ms;
+  }
+}
