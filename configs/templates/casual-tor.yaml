@@ -1,0 +1,22 @@
+meta:
+  title: Casual Tor
+  author: Pitchfork-and-Torch
+  description: Single local Tor hop — best first run.
+  tags: [starter, tor, low-latency]
+
+chain:
+  name: community-casual-tor
+  profile: casual_shadow
+  description: Community template — Tor only.
+  hops:
+    - id: tor-local
+      type: tor
+      host: 127.0.0.1
+      port: 9050
+      label: Tor (local SOCKS)
+  policy:
+    min_hops: 1
+    max_hops: 3
+    kill_switch: true
+    fail_closed: true
+  tags: [community, tor]
