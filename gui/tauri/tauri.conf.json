@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Trench Coat",
+  "version": "0.4.0",
+  "identifier": "xyz.pitchfork.trenchcoat",
+  "build": {
+    "frontendDist": "../web",
+    "devUrl": "http://127.0.0.1:8742",
+    "beforeDevCommand": "",
+    "beforeBuildCommand": ""
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "TRENCH COAT — Command Nexus",
+        "width": 1280,
+        "height": 800,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self' http://127.0.0.1:8742 ws://127.0.0.1:8742 'unsafe-inline'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["msi", "app", "deb", "appimage"],
+    "icon": ["../../assets/logos/trench-coat-mark.svg"],
+    "category": "Utility",
+    "shortDescription": "Legal-first multi-hop privacy cloak",
+    "longDescription": "Trench Coat chains Tor and SOCKS hops through a local entry with fail-closed defaults."
+  },
+  "plugins": {}
+}

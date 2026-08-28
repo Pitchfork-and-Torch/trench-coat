@@ -1,0 +1,32 @@
+meta:
+  title: VPN then Tor
+  author: Pitchfork-and-Torch
+  description: Local VPN SOCKS front door, Tor exit.
+  tags: [vpn, tor, recommended]
+
+chain:
+  name: community-vpn-tor
+  profile: ghost
+  description: Community template — VPN → Tor.
+  hops:
+    - id: vpn-entry
+      type: socks5
+      host: 127.0.0.1
+      port: 1088
+      label: Local VPN SOCKS (configure me)
+      options:
+        provider_hint: mullvad|proton|self-hosted
+    - id: tor-exit
+      type: tor
+      host: 127.0.0.1
+      port: 9050
+      label: Tor exit
+  policy:
+    min_hops: 2
+    max_hops: 5
+    rotation_minutes: 30
+    kill_switch: true
+    strict_kill_switch: true
+    block_ipv6: true
+    dns_leak_protection: true
+  tags: [community, vpn, tor]
