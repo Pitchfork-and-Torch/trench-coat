@@ -43,7 +43,7 @@ BANNER = r"""
 [bold #FF00AA] ██║     ██║   ██║██╔══██║   ██║   [/]
 [bold #FF00AA] ╚██████╗╚██████╔╝██║  ██║   ██║   [/]
 [bold #FF00AA]  ╚═════╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   [/]
-[dim]  digital invisibility cloak  ·  {version}  ·  {codename}[/]
+[dim]  legal-first privacy cloak  ·  {version}  ·  {codename}[/]
 [bold #9B59B6]  THE SHADOWS ARE YOUR ALLY[/]
 """
 
@@ -81,7 +81,7 @@ def legal_cmd() -> None:
 
 @main.command("banner")
 def banner_cmd() -> None:
-    """Print the neon banner."""
+    """Print the Trench Coat banner."""
     _print_banner(True)
 
 

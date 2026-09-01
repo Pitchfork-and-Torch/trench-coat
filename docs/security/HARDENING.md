@@ -1,7 +1,7 @@
 # Hardening Guide - Trench Coat
 
 *Put the coat on correctly or do not bother.*  
-**Updated for 1.1 Velvet Collar** (fail-closed refuse-direct, residual hard-KS doctor checks, Windows Tor egress allow-list guidance).
+**Updated for 1.2.x Circuit Desk** (fail-closed refuse-direct, residual hard-KS doctor checks, Windows Tor egress allow-list guidance). Velvet Collar visual system unchanged.
 
 Plain-language companion: [WHAT_THIS_DOES.md](../WHAT_THIS_DOES.md) · [THREAT_MODEL.md](../dossiers/THREAT_MODEL.md)
 

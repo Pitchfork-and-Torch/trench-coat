@@ -18,12 +18,15 @@ Pydantic models for hops, chains, policies, split-tunnel rules. YAML on disk via
 
 `Hop` ABC with `probe()` and `as_proxy_url()`. Implementations:
 
-| Type | MVP | Notes |
-|------|-----|-------|
+| Type | Status | Notes |
+|------|--------|-------|
 | socks5 / residential / self_hosted | Live | SOCKS5 handshake + CONNECT probe |
 | http / https | Live | HTTP CONNECT probe |
-| tor | Live | SOCKS5 + bootstrap messaging |
-| wireguard / shadowsocks / hysteria2 / i2p | Stub | Use `options.socks_bridge` until native drivers |
+| tor | Live | SOCKS5 + bootstrap messaging; auto-detect 9050/9150 |
+| shadowsocks / hysteria2 | Managed | External `sslocal` / `hysteria` client + local SOCKS bridge |
+| wireguard | Managed | L3; needs `options.socks_bridge` (e.g. tun2socks) after the tunnel is up |
+| bridge | Managed | Point `socks_bridge` at Tor+PT SOCKS; not a built-in PT stack |
+| i2p | Stub | Run i2pd yourself; point a socks5 hop at its listener |
 
 ### Engine (`trenchcoat.engine`)
 

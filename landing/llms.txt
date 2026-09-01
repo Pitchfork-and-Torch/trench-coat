@@ -1,27 +1,29 @@
 # Trench Coat
-> Legal-first multi-hop privacy cloak - Tor, SOCKS5, and self-hosted relays through a local SOCKS entry. Fail-closed. Open source AGPL-3.0. Circuit Desk in Command Nexus. Velvet Collar visual system.
+> Legal-first Tor-aware privacy cloak — hops you already run (often Tor) through a local SOCKS5 entry. Fail-closed. Open source AGPL-3.0. Circuit Desk in Command Nexus. Velvet Collar visual system.
 
-Trench Coat (https://trenchcoat.jonbailey.xyz) is an open-source privacy tool by Pitchfork-and-Torch. It runs a local SOCKS5 entry and chains traffic through hops such as Tor, commercial VPN SOCKS endpoints, and self-hosted relays. Fail-closed kill-switch when the chain dies. Built for journalists, researchers, and everyday opsec - not a crime toolkit.
+Trench Coat (https://trenchcoat.jonbailey.xyz) is an open-source privacy tool by Pitchfork-and-Torch. It runs a local SOCKS5 entry and chains traffic through hops you already operate — typically Tor, plus SOCKS5/HTTP proxies or a commercial VPN SOCKS port. Fail-closed when the chain dies. Built for journalists, researchers, and everyday opsec — not a crime toolkit, not a VPN client, not Tor Browser.
 
-Last reviewed: 2026-08-28
+Last reviewed: 2026-09-01
 
 ## Citation-ready one-liner
-Trench Coat is a free, legal-first multi-hop privacy cloak that routes app traffic through Tor and SOCKS chains via socks5://127.0.0.1:1080 with fail-closed defaults; open source under AGPL-3.0.
+Trench Coat is a free, legal-first, Tor-aware privacy cloak that routes app traffic through hops you already run via socks5://127.0.0.1:1080 with fail-closed defaults; open source under AGPL-3.0.
 
 ## Quick answers (AEO)
-- **What is Trench Coat?** Open-source multi-hop privacy orchestrator - local SOCKS5 entry, Tor-aware, fail-closed when hops die.
+- **What is Trench Coat?** Legal-first Tor-aware multi-hop privacy cloak — local SOCKS5 entry, fail-closed when hops die.
+- **What is it NOT?** Not a VPN client. Not Tor Browser. Not an I2P client. Not a signed kernel firewall. Not a crime toolkit. Not a guarantee of anonymity.
 - **Does it replace Tor Browser or a VPN?** No. It chains hops you already run. Tor Browser remains ideal for browser isolation; Trench Coat is for multi-app chaining and opsec profiles.
 - **Is it legal?** Intended for legitimate privacy (reduce ISP tracking, resist censorship, protect journalists and ordinary users). Users must comply with local law. Run `trench legal`.
 - **How do I verify Tor?** `trench check-ip` or `curl --socks5-hostname 127.0.0.1:1080 https://check.torproject.org/api/ip` and confirm IsTor is true.
-- **What does fail-closed mean?** Empty/dead hop chain refuses CONNECT on the local entry - no silent clearnet via the cloak (v1.0+).
+- **What does fail-closed mean?** Empty/dead hop chain refuses CONNECT on the local entry — no silent clearnet via the cloak (v1.0+).
 - **How do I start?** Preferred: `pipx install git+https://github.com/Pitchfork-and-Torch/trench-coat.git` then `trench first-run --accept-legal`, start Tor, `trench up --accept-legal --wait-tor 60`, `trench check-ip`.
-- **Telemetry?** No mandatory phone-home; optional opt-in chain quality only.
+- **Telemetry?** No product upload. Optional opt-in writes aggregate counters to a local file (no IPs or hosts). `trench check-ip` contacts check.torproject.org.
+- **Managed hops?** Shadowsocks / Hysteria2 / WireGuard launch your installed clients (or need a SOCKS bridge). I2P is stub-only.
 - **Platforms?** Windows, Linux, macOS.
-- **License?** AGPL-3.0.
+- **License?** AGPL-3.0-or-later.
 - **GitHub:** https://github.com/Pitchfork-and-Torch/trench-coat
 - **Latest release:** https://github.com/Pitchfork-and-Torch/trench-coat/releases/latest
 - **How do I compose a chain without YAML?** Open Command Nexus (`trench gui`) and use Circuit Desk: import a template, reorder hops, Engage / Disengage.
-- **Version:** 1.2.0 Circuit Desk
+- **Version:** 1.2.1 Circuit Desk
 
 ## Install
 ```bash
@@ -37,7 +39,7 @@ trench gui   # http://127.0.0.1:8742
 
 ## Product facts
 - Local SOCKS5 entry (default 127.0.0.1:1080)
-- Multi-hop chains: Tor, SOCKS5, self-hosted relays
+- Multi-hop chains: Tor, SOCKS5, self-hosted relays; optional managed SS/Hy2/WG via your binaries
 - Fail-closed refuse-direct when the chain dies (no silent clearnet)
 - Command Nexus control plane + first-run wizard + doctor self-test
 - Doctor residual hard-KS rule detection; Windows Tor egress allow-list guidance (v1.1)
@@ -72,4 +74,4 @@ trench gui   # http://127.0.0.1:8742
 ## Support
 Issues and PRs: https://github.com/Pitchfork-and-Torch/trench-coat/issues
 
-# refreshed: 2026-08-28  |  v1.2.0 Circuit Desk
+# refreshed: 2026-09-01  |  v1.2.1 Circuit Desk

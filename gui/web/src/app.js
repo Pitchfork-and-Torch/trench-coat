@@ -1,5 +1,5 @@
 /**
- * Trench Coat Command Nexus 2.0 — modular cyberpunk control surface.
+ * Trench Coat Command Nexus 2.0 — Velvet Collar control surface (Circuit Desk).
  */
 
 import { fetchJSON, postJSON } from "./components/api.js";
