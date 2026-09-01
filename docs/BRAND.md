@@ -1,6 +1,6 @@
 # Trench Coat brand system - Velvet Collar
 
-**Version:** 1.2.0 | **Codename:** Circuit Desk (Velvet Collar visual system)  
+**Version:** 1.2.1 | **Codename:** Circuit Desk (Velvet Collar visual system)  
 **Tagline:** The shadows are your ally.  
 **Positioning:** Legal-first multi-hop privacy cloak. Serious operational security with hand-crafted atmospheric beauty. Not a crime toolkit. Not neon cyberpunk.
 

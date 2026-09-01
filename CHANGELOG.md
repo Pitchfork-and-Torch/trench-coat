@@ -1,6 +1,24 @@
 # Changelog
 
-Trench Coat is a legal-first multi-hop privacy cloak: CLI core, local SOCKS chaining, Tor-aware profiles, split-tunnel and system routing helpers, managed hop drivers, plugins, decoy traffic, Ghost Continuum plane integration, and a Command Nexus control surface.
+Trench Coat is a legal-first Tor-aware multi-hop privacy cloak: CLI core, local SOCKS chaining, Tor-aware profiles, split-tunnel and system routing helpers, managed hop drivers (external clients), plugins, optional decoy traffic, optional Ghost Continuum companion plane, and a Command Nexus control surface.
+
+## 1.2.1 - Circuit Desk (honesty)
+
+Copy and version stamps aligned with shipped behavior. No new hops, hosts, or attack surface.
+
+### Honesty
+
+- Version **1.2.1** in package metadata, `trench --version`, Nexus tagline, landing/AEO, and docs alignment stamps.
+- README lead: legal-first Tor-aware cloak; explicit **not** a VPN, Tor Browser, I2P client, or crime toolkit.
+- Capability table: I2P is stub-only; SS/Hy2/WG need an installed client + SOCKS bridge; Tauri is scaffold; telemetry is local-file only; Ghost Continuum is an optional companion repo.
+- Architecture hop table no longer calls managed SS/Hy2/WG "stub."
+- Telemetry FAQ: no upload. SECURITY.md lists 1.2.x as supported.
+- Landing mojibake (`→`) and Twitter handle mismatch (`@suddenlyjon`) fixed.
+- CLI banner help is no longer "neon"; tagline is "legal-first privacy cloak."
+
+### Responsibility
+
+Legal-first only. Not a crime toolkit. Fail-closed and `--accept-legal` unchanged.
 
 ## 1.2.0 - Circuit Desk
 

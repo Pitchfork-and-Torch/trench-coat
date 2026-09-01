@@ -104,7 +104,7 @@ def main() -> None:
     x0, y0 = 56, 180
     draw.text((x0, y0), "THE SHADOWS ARE YOUR ALLY", fill=GOLD, font=f_tag)
     draw.text((x0, y0 + 42), "TRENCH COAT", fill=PARCHMENT, font=f_title)
-    draw.text((x0, y0 + 118), "v1.2.0  |  CIRCUIT DESK", fill=SAGE, font=f_sub)
+    draw.text((x0, y0 + 118), "v1.2.1  |  CIRCUIT DESK", fill=SAGE, font=f_sub)
     draw.text((x0, y0 + 168), "Legal-first multi-hop privacy cloak", fill=PARCHMENT, font=f_body)
     draw.text(
         (x0, y0 + 204),

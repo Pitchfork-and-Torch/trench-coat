@@ -1,10 +1,11 @@
-"""Trench Coat — digital invisibility cloak.
+"""Trench Coat — legal-first Tor-aware privacy cloak.
 
-Legal-first multi-hop proxy chaining for legitimate privacy:
+Local SOCKS5 entry and multi-hop proxy chaining for legitimate privacy:
 censorship resistance, ISP tracking protection, journalist/activist opsec.
+Not a crime toolkit. Not a VPN or Tor Browser replacement.
 """
 
-__version__ = "1.2.0"
+__version__ = "1.2.1"
 __codename__ = "CIRCUIT DESK"
 
 LEGAL_NOTICE = (

@@ -1,7 +1,7 @@
 # Security Audit Checklist
 
 Use before tagging a release. Mark each item Pass / Fail / N/A.  
-**Aligned with 1.1 Velvet Collar.**
+**Aligned with 1.2.x Circuit Desk.**
 
 Auditor: __________  Date: __________  Version: __________
 

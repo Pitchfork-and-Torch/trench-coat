@@ -15,7 +15,7 @@
 [![live](https://img.shields.io/badge/live-trenchcoat.jonbailey.xyz-c9a227?style=for-the-badge&labelColor=0a0b14)](https://trenchcoat.jonbailey.xyz/)
 [![license](https://img.shields.io/badge/license-AGPL--3.0-c9a227?style=for-the-badge&labelColor=0a0b14)](LICENSE)
 [![python](https://img.shields.io/badge/python-3.11+-6b8f7a?style=for-the-badge&labelColor=0a0b14)](https://python.org)
-[![status](https://img.shields.io/badge/status-1.2.0%20Circuit%20Desk-6b8f7a?style=for-the-badge&labelColor=0a0b14)](#development-roadmap)
+[![status](https://img.shields.io/badge/status-1.2.1%20Circuit%20Desk-6b8f7a?style=for-the-badge&labelColor=0a0b14)](#development-roadmap)
 [![opsec](https://img.shields.io/badge/opsec-legal--first-c9a227?style=for-the-badge&labelColor=0a0b14)](#legal-notice)
 [![landing](https://img.shields.io/badge/site-trenchcoat.jonbailey.xyz-6b8f7a?style=for-the-badge&labelColor=0a0b14)](https://trenchcoat.jonbailey.xyz/)
 
@@ -23,11 +23,11 @@
   <img src="assets/marketing/trench-coat-hero-velvet.jpg" alt="Trench Coat - film-noir watercolor privacy cloak in the rain" width="900"/>
 </p>
 
-<p align="center"><em>THE SHADOWS ARE YOUR ALLY | v1.2.0 Circuit Desk</em></p>
+<p align="center"><em>THE SHADOWS ARE YOUR ALLY | v1.2.1 Circuit Desk</em></p>
 
-**Trench Coat** is a desktop privacy system (CLI core + Command Nexus) that **chains network hops** - Tor, SOCKS5/HTTP proxies, commercial VPNs, self-hosted relays, and (by design) Shadowsocks, WireGuard, Hysteria2, I2P - to maximize anonymity and resist tracking **within the law**.
+**Trench Coat** is a **legal-first, Tor-aware privacy cloak**: a desktop CLI plus Command Nexus that runs a **local SOCKS5 entry** and **chains hops you already run** (typically Tor, plus SOCKS5/HTTP proxies or a VPN's local SOCKS port). Defaults are **fail-closed**. Use is **within the law**.
 
-Think *digital invisibility cloak*: elegant, relentless, film-noir cool.
+It is **not** a VPN client, **not** Tor Browser, **not** an I2P client, and **not** a crime toolkit.
 
 <p align="center">
   <img src="assets/logos/trench-coat-mark.png" alt="Trench Coat mark" width="120"/>
@@ -62,25 +62,27 @@ Run `trench legal` any time. First `trench up` requires `--accept-legal`.
 
 | Capability | Status |
 |------------|--------|
-| Multi-hop chain builder + concurrent health probes | yes |
+| Multi-hop chain + concurrent health probes | yes |
 | Local SOCKS5 entry with nested proxy chaining | yes |
 | Auto-detect Tor on **9050 / 9150**, bind hops | yes |
-| Fail-closed + soft kill-switch | yes |
+| Fail-closed refuse-direct + soft kill-switch | yes |
 | Profiles: Ghost, Journalist, Whistleblower, Casual Shadow, Paranoid | yes |
-| `trench check-ip` - IsTor + egress IP | yes |
-| Session dossiers (JSON + classified HTML) | yes |
-| Cyberpunk web Command Nexus + FastAPI control plane | yes |
-| Ghost Continuum plane (`trench-cloak`) | yes |
-| SEO/AEO landing + FAQ schema | yes |
-| Split-tunnel + soft system route + DoH + IPv6 tools | yes (Phase 2) |
-| Managed SS / Hy2 / WG + bridges + decoy + plugins | yes (Phase 3) |
-| TTS, Tauri scaffold, map upgrade, browser companion | yes (Phase 4) |
-| Latency optimizer + community templates + opt-in telemetry | yes (Phase 5) |
-| Fail-closed refuse-direct + first-run + Nexus 2.0 | yes (v1.0 Neon Collar) |
-| Velvet Collar brand + landing + marketing assets | yes (v1.1.0) |
-| Circuit Desk hop workshop + pid-owned Disengage | yes (v1.2.0) |
-| Doctor residual hard-KS rules + Windows Tor egress guidance | yes (v1.1.0) |
-| Full WFP signed callout / auto hard firewall | later |
+| `trench check-ip` — IsTor + egress IP (via check.torproject.org) | yes |
+| Session dossiers (JSON + HTML, local) | yes |
+| Velvet Collar Command Nexus + Circuit Desk + loopback FastAPI | yes |
+| `trench first-run`, `trench doctor`, pid-owned Engage/Disengage | yes |
+| Split-tunnel, soft system proxy, DoH helper, IPv6 hints | yes (helpers; soft mode cloaks SOCKS apps only) |
+| Managed Shadowsocks / Hysteria2 / WireGuard | yes if you install the client; chain via local SOCKS bridge |
+| Tor PT bridges (obfs4 / snowflake / meek) | via Tor + `socks_bridge`, not a built-in PT stack |
+| I2P | stub only — run i2pd yourself and point a SOCKS5 hop at it |
+| Plugins + optional decoy HTTPS noise | yes (decoy uses existing connectivity-check URLs) |
+| TTS (`trench speak`) | yes if an OS speech backend exists |
+| Tauri desktop shell | scaffold only (not a shipped installer) |
+| Browser companion | optional, separate trust domain; not Tor Browser |
+| Optimizer + shipped templates + opt-in **local** telemetry | yes (telemetry is a local file; no upload) |
+| Ghost Continuum `trench-cloak` | optional companion repo; not bundled here |
+| SEO/AEO landing + FAQ schema | yes (marketing site) |
+| Signed WFP callout / auto hard firewall | later |
 
 ---
 
@@ -161,11 +163,13 @@ trench gui
 ## CLI
 
 ```text
+trench --version
 trench legal | banner | status | doctor [--json]
 trench first-run --accept-legal
 trench tor status | newnym
 trench check-ip | doh | split | ipv6
 trench route soft | revert | scripts
+trench killswitch soft | hard | disarm | scripts
 trench chain list | show | new | use
 trench up --accept-legal [--auto-tor] [--wait-tor 60]
 trench optimize | templates list | templates import <id>
@@ -193,7 +197,7 @@ Apps  ->  Trench Coat SOCKS entry (127.0.0.1:1080)
 - **Engine**: concurrent hop probes, rotator, DNS guard, kill-switch, nested proxy server  
 - **Tor-aware**: auto-bind local Tor SOCKS; `check-ip` via check.torproject.org  
 - **GUI**: Velvet Collar Command Nexus + Circuit Desk + local FastAPI  
-- Docs: [`docs/architecture/OVERVIEW.md`](docs/architecture/OVERVIEW.md) Â· [`docs/WHAT_THIS_DOES.md`](docs/WHAT_THIS_DOES.md)
+- Docs: [`docs/architecture/OVERVIEW.md`](docs/architecture/OVERVIEW.md) · [`docs/WHAT_THIS_DOES.md`](docs/WHAT_THIS_DOES.md)
 
 ---
 
@@ -234,8 +238,9 @@ Report vulnerabilities privately - [SECURITY.md](SECURITY.md).
 | **7** | Neon Collar | Fail-closed hardening, first-run, Nexus 2.0 - **v1.0.0** |
 | **7.1** | Velvet Collar | Brand + landing + residual KS/doctor polish - **v1.1.0** |
 | **7.2** | Circuit Desk | Nexus hop workshop + pid-owned Disengage - **v1.2.0** |
+| **7.2.1** | Circuit Desk | Honesty: versions + public copy match shipped code - **v1.2.1** |
 
-Full plan: [`docs/DEVELOPMENT_PLAN.md`](docs/DEVELOPMENT_PLAN.md) Â· residual: [`docs/ROADMAP_RESIDUAL.md`](docs/ROADMAP_RESIDUAL.md)
+Full plan: [`docs/DEVELOPMENT_PLAN.md`](docs/DEVELOPMENT_PLAN.md) · residual: [`docs/ROADMAP_RESIDUAL.md`](docs/ROADMAP_RESIDUAL.md)
 
 ---
 
@@ -273,11 +278,15 @@ See also NetForge [SUITE.md](https://github.com/Pitchfork-and-Torch/netforge-win
 
 ### Is Trench Coat a VPN?
 
-No. It's a **legal-first multi-hop privacy cloak** with a Tor-aware CLI and control nexus. Think chain composition and monitoring - not a commercial VPN client.
+No. It is a **legal-first, Tor-aware multi-hop privacy cloak**. You can include a VPN's **local SOCKS port** as a hop. Trench Coat does not replace that vendor client.
+
+### What is Trench Coat **not**?
+
+Not a commercial VPN app. Not Tor Browser (no browser isolation). Not an I2P client. Not a signed Windows kernel firewall. Not a guarantee of anonymity. Soft mode only cloaks apps you point at `socks5://127.0.0.1:1080`.
 
 ### Does it phone home?
 
-No mandatory product telemetry (opt-in chain quality only). Control API defaults to loopback. See [SECURITY.md](SECURITY.md).
+The CLI does not upload telemetry. Optional `trench telemetry enable` writes aggregate latency/health counters to a **local** file (no IPs, hosts, or destinations; no network upload). Control API defaults to loopback. The public landing may load a separate site hit-counter; that is not the product. See [SECURITY.md](SECURITY.md).
 
 ### Can I use it with NetForge?
 

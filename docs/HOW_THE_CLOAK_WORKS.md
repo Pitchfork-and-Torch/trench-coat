@@ -6,7 +6,7 @@
 
 ## 1. Intent
 
-Trench Coat is a **legal-first multi-hop orchestrator**. You already run (or will run) privacy hops such as Tor. Trench Coat:
+Trench Coat is a **legal-first, Tor-aware multi-hop orchestrator**. You already run (or will run) privacy hops such as Tor. Trench Coat:
 
 1. Offers one local address for apps: `socks5://127.0.0.1:1080`  
 2. Chains those hops in order  

@@ -1,6 +1,6 @@
 # Residual roadmap - Iron Collar and packaging
 
-*What is still open after Velvet Collar **v1.1.0**. Honest scope for operators and auditors.*
+*What is still open after Circuit Desk **v1.2.1**. Honest scope for operators and auditors.*
 
 ## Done in 1.0 (do not re-list as gaps)
 
@@ -47,6 +47,12 @@
 | In-process cloak up without dual engines | P3 / hold | Dual-engine footgun; 1.2 uses pid lock instead |
 | Browser extension badge from identity API | P2 | Keep separate trust domain |
 | Deeper Ghost Continuum plane | P3 | Continuum repo owns plane UX |
+
+## Done in 1.2.1 honesty
+
+- Public version stamps (package, CLI `--version`, Nexus, landing/AEO) set to 1.2.1
+- README/AEO state what the cloak is and is **not**; I2P stub vs managed SS/Hy2/WG described honestly
+- Telemetry described as local-file only; SECURITY.md supports 1.2.x
 
 ## Documentation hygiene
 

@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "trenchcoat"
-version = "1.2.0"
-description = "Trench Coat - digital invisibility cloak. Multi-hop proxy chaining for legitimate privacy."
+version = "1.2.1"
+description = "Legal-first Tor-aware multi-hop privacy cloak. Local SOCKS5 entry, fail-closed chaining, Command Nexus."
 readme = "README.md"
 license = { text = "AGPL-3.0-or-later" }
 requires-python = ">=3.11"

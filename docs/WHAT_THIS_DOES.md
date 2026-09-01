@@ -23,7 +23,7 @@ It is **not** a magic invisibility spell, a crime toolkit, or a replacement for 
 | Offers **profiles** | Casual Shadow, Ghost, Journalist, etc. — different risk/latency tradeoffs |
 | Helps you **check identity** | `trench check-ip` asks “Does the Tor Project see me as Tor?” |
 | Optional **hard kill-switch** | Advanced OS firewall rules (with an undo script written first) |
-| Stays **local-first** | No mandatory cloud account; no silent product telemetry |
+| Stays **local-first** | No mandatory cloud account; optional telemetry is a **local file only** (no upload) |
 
 ---
 
@@ -31,7 +31,10 @@ It is **not** a magic invisibility spell, a crime toolkit, or a replacement for 
 
 | It does **not** do this | Why it matters |
 |-------------------------|----------------|
+| Replace a **VPN client** | You still run the vendor app; Trench Coat can use its local SOCKS port as a hop |
 | Replace **Tor Browser** | Tor Browser isolates *browsing*. Trench Coat chains *network hops* for apps you point at SOCKS |
+| Speak **I2P** natively | I2P hop type is a stub. Run i2pd and point a SOCKS5 hop at it |
+| Implement Shadowsocks / WireGuard / Hysteria2 itself | Managed hops launch **your** client binaries (or require a SOCKS bridge). No protocol stack is bundled |
 | Cloak **every app automatically** | Soft mode only covers apps that use the local SOCKS. A browser that ignores the proxy still uses your real path |
 | Stop **malware** on your computer | If your device is compromised, privacy tools cannot save you |
 | Hide you from **browser fingerprinting** alone | Canvas, fonts, logins, and behavior can still identify you |

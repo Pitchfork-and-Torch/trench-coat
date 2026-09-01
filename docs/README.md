@@ -1,6 +1,6 @@
 # Trench Coat documentation
 
-**Legal-first multi-hop privacy cloak** · AGPL-3.0-or-later · [Landing](https://trenchcoat.jonbailey.xyz/)
+**Legal-first Tor-aware multi-hop privacy cloak** · AGPL-3.0-or-later · v1.2.1 Circuit Desk · [Landing](https://trenchcoat.jonbailey.xyz/)
 
 ## Start here (non-experts)
 

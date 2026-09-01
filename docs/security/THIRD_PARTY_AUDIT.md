@@ -1,7 +1,7 @@
 # Third-Party Security Audit Readiness
 
 **Product:** Trench Coat — legal-first multi-hop privacy cloak  
-**Aligned version:** 1.1.x Velvet Collar  
+**Aligned version:** 1.2.x Circuit Desk  
 **License:** AGPL-3.0-or-later  
 
 Trench Coat is legal-first privacy software. This document prepares the project for an independent security review and keeps residual Iron Collar items explicit.

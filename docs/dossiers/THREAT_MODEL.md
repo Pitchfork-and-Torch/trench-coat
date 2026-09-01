@@ -1,7 +1,7 @@
 # Threat model — Trench Coat
 
 **Public · legal-first · plain language + operator tables**  
-**Version alignment:** 1.1+ Velvet Collar (fail-closed refuse-direct; residual hard-KS doctor checks)
+**Version alignment:** 1.2.x Circuit Desk (fail-closed refuse-direct; Circuit Desk hop workshop; residual hard-KS doctor checks)
 
 This document answers: *Who might look at my traffic, what does the cloak change, and what still hurts me?*
 

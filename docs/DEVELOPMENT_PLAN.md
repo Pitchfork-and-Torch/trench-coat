@@ -64,6 +64,7 @@
 - [x] Pid-owned cloak lock; Disengage stops the Engage subprocess
 - [x] Fail-closed: empty desk cannot Engage
 - [x] **Shipped as v1.2.0** (Circuit Desk)
+- [x] **v1.2.1 honesty** — versions, README/AEO, hop-table, telemetry-local copy aligned with code
 
 ## Phase 7.1 - Velvet Collar -> **v1.1.0**
 

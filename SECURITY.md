@@ -4,8 +4,10 @@
 
 | Version | Supported |
 |---------|-----------|
+| 1.2.x | ✅ supported |
+| 1.1.x | ✅ supported |
 | 1.0.x | ✅ supported |
-| 0.5.x / 0.6.x | best-effort (upgrade to 1.0) |
+| 0.5.x / 0.6.x | best-effort (upgrade to 1.2) |
 
 ## Reporting a vulnerability
 
