@@ -1,0 +1,23 @@
+# Example Ghost profile — copy hop endpoints to your real proxies
+name: ghost
+profile: ghost
+description: VPN front door, Tor back alley.
+hops:
+  - id: vpn-entry
+    type: socks5
+    host: 127.0.0.1
+    port: 1088
+    label: Local VPN SOCKS
+  - id: tor-exit
+    type: tor
+    host: 127.0.0.1
+    port: 9050
+    label: Tor
+policy:
+  min_hops: 2
+  max_hops: 5
+  rotation_minutes: 30
+  kill_switch: true
+  strict_kill_switch: true
+  block_ipv6: true
+  dns_leak_protection: true

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trench Coat - Command Nexus</title>
+  <meta name="theme-color" content="#0a0b14" />
+  <link rel="stylesheet" href="/src/styles/noir.css" />
+</head>
+<body>
+  <div class="rain" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div id="live-region" class="sr-only" role="status" aria-live="polite"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="coat-icon" aria-hidden="true"></div>
+      <div>
+        <h1>TRENCH COAT</h1>
+        <p class="tagline">Command Nexus | v1.3.0 Circuit Desk | The shadows are your ally</p>
+      </div>
+    </div>
+    <div class="status-pill" id="status-pill">OFFLINE</div>
+  </header>
+
+  <div class="action-bar" role="toolbar" aria-label="Cloak actions">
+    <button type="button" id="btn-legal" class="btn">Accept Legal</button>
+    <button type="button" id="btn-engage" class="btn primary">Engage Cloak</button>
+    <button type="button" id="btn-disengage" class="btn">Disengage</button>
+    <button type="button" id="btn-newnym" class="btn">Tor NEWNYM</button>
+    <button type="button" id="btn-doctor" class="btn">Run Doctor</button>
+    <span id="action-toast" class="toast" role="status"></span>
+  </div>
+
+  <main class="layout">
+    <div class="main-col">
+    <section class="panel city-map" aria-labelledby="map-heading">
+      <h2 id="map-heading">CITY MAP // CIRCUIT</h2>
+      <canvas id="city" width="900" height="420" role="img"
+        aria-label="Live hop circuit visualization with health and latency"></canvas>
+      <p class="hop-summary dim" id="hop-summary">Draft circuit on the desk. Live hop IDs appear when cloaked.</p>
+      <p class="noir-line" id="noir-line">Rain on the glass. Waiting for the coat...</p>
+    </section>
+
+    <section class="panel circuit-desk" aria-labelledby="desk-heading">
+      <h2 id="desk-heading">CIRCUIT DESK</h2>
+      <p class="dim small" id="desk-hint">Compose hops here. Templates load a starting circuit. YAML is optional.</p>
+      <div class="desk-meta">
+        <label class="desk-name-lab">
+          Chain
+          <input id="desk-name" type="text" maxlength="64" value="custom-desk" aria-label="Chain name" />
+        </label>
+        <button type="button" id="btn-add-hop" class="btn small">Add hop</button>
+        <button type="button" id="btn-desk-save" class="btn small">Save</button>
+      </div>
+      <p class="dim small desk-templates-label">Templates</p>
+      <div id="desk-templates" class="desk-templates" role="group" aria-label="Community chain templates"></div>
+      <ul class="circuit-hops" id="circuit-hops" aria-label="Hop circuit"></ul>
+      <p class="dim small">Alt+Up / Alt+Down reorders the focused hop. Fail-closed: empty desk cannot Engage.</p>
+    </section>
+    </div>
+
+    <aside class="side">
+      <section class="panel">
+        <h2>CLOAK</h2>
+        <dl class="kv" id="cloak-kv">
+          <div><dt>Chain</dt><dd id="kv-chain">—</dd></div>
+          <div><dt>Profile</dt><dd id="kv-profile">—</dd></div>
+          <div><dt>Listen</dt><dd id="kv-listen">—</dd></div>
+          <div><dt>Kill-switch</dt><dd id="kv-ks">—</dd></div>
+          <div><dt>Fail-closed</dt><dd id="kv-fc">—</dd></div>
+          <div><dt>Latency</dt><dd id="kv-latency">—</dd></div>
+          <div><dt>Identity</dt><dd id="kv-identity">—</dd></div>
+        </dl>
+        <div class="metrics">
+          <div class="metric"><span>IN</span><strong id="m-in">0</strong></div>
+          <div class="metric"><span>OUT</span><strong id="m-out">0</strong></div>
+          <div class="metric"><span>CONN</span><strong id="m-conn">0</strong></div>
+          <div class="metric"><span>REFUSED</span><strong id="m-refused">0</strong></div>
+        </div>
+        <p class="status-messages dim" id="status-messages">—</p>
+        <pre class="doctor-summary dim" id="doctor-summary"></pre>
+      </section>
+
+      <section class="panel">
+        <h2>HOPS</h2>
+        <ul class="hop-list" id="hop-list" aria-label="Hop health list"></ul>
+      </section>
+
+      <section class="panel presets">
+        <h2>PROFILES</h2>
+        <p class="dim small">Loads the desk. Then Engage or <code>trench up</code>.</p>
+        <div class="preset-grid" id="preset-grid"></div>
+      </section>
+
+      <section class="panel dossiers">
+        <h2>DOSSIERS</h2>
+        <button type="button" id="btn-refresh-dossiers" class="btn small">Refresh</button>
+        <ul class="dossier-list" id="dossier-list"></ul>
+        <div id="dossier-detail" class="dossier-detail"></div>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="legal">
+    Legal-first privacy tool. Not for crime. Fail-closed by default.
+    · Point apps at <code>socks5://127.0.0.1:1080</code>
+    · <a href="http://127.0.0.1:30000/" target="_blank" rel="noopener">Ghost Continuum</a>
+  </footer>
+
+  <script src="/src/app.js" type="module"></script>
+</body>
+</html>
