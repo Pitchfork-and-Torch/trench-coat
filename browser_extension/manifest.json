@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Trench Coat Fingerprint Companion",
+  "version": "0.4.0",
+  "description": "Optional, separate-trust browser hardening hints for Trench Coat users. Does not replace a hardened browser.",
+  "permissions": ["storage", "proxy"],
+  "host_permissions": ["http://127.0.0.1:8742/*"],
+  "action": {
+    "default_title": "Trench Coat Companion",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
