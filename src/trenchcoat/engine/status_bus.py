@@ -109,8 +109,41 @@ def release_owner() -> None:
     clear_status()
 
 
+def _looks_like_cloak_process(proc: Any) -> bool:
+    """True if cmdline/name looks like a trench cloak owner (guards PID reuse)."""
+    try:
+        name = (proc.name() or "").lower()
+        cmd = " ".join(proc.cmdline() or []).lower()
+    except Exception:  # noqa: BLE001
+        return False
+    blob = f"{name} {cmd}"
+    markers = (
+        "trenchcoat",
+        "trench-coat",
+        "trenchcoat.cli",
+        "trenchcoat.__main__",
+        "/trench ",
+        "\trench ",
+        "trench.exe",
+        "trench ",
+    )
+    if any(m in blob for m in markers):
+        return True
+    # `trench` as argv0 / script basename
+    try:
+        argv0 = (proc.cmdline() or [""])[0]
+    except Exception:  # noqa: BLE001
+        argv0 = ""
+    base = Path(argv0).name.lower() if argv0 else ""
+    return base in {"trench", "trench.exe", "trenchcoat", "trenchcoat.exe"}
+
+
 def stop_owner(*, timeout: float = 8.0) -> dict[str, Any]:
-    """Terminate the pid-owned cloak process. Safe if already idle."""
+    """Terminate the pid-owned cloak process. Safe if already idle.
+
+    Refuses to signal a PID that no longer looks like a trench process so a
+    recycled OS PID cannot be killed by Disengage.
+    """
     alive, pid = owner_alive()
     if not alive or pid is None:
         release_owner()
@@ -120,6 +153,15 @@ def stop_owner(*, timeout: float = 8.0) -> dict[str, Any]:
         import psutil
 
         proc = psutil.Process(pid)
+        if not _looks_like_cloak_process(proc):
+            # PID reused by an unrelated process — clear the lock, do not signal it.
+            release_owner()
+            return {
+                "ok": True,
+                "mode": "stale-pid",
+                "pid": pid,
+                "message": "cleared stale owner; pid no longer pointed at a trench process",
+            }
         proc.terminate()
         try:
             proc.wait(timeout=timeout)

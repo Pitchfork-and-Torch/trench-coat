@@ -141,8 +141,9 @@ def test_cloak_up_rejects_empty_enabled(client, isolated):
 
 
 def test_pid_lock_down_stops_process(client, isolated):
+    # Child cmdline must look like a cloak owner (guards against PID reuse kills).
     proc = subprocess.Popen(
-        [sys.executable, "-c", "import time; time.sleep(60)"],
+        [sys.executable, "-c", "import trenchcoat, time; time.sleep(60)"],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
     )

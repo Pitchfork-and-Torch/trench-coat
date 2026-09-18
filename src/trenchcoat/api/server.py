@@ -499,6 +499,9 @@ def create_app(engine_holder: dict[str, Any] | None = None) -> FastAPI:
         msg = {
             "idle": "No cloak process to stop.",
             "subprocess": f"Disengaged pid {result.get('pid')}.",
+            "stale-pid": (
+                f"Cleared stale cloak lock (pid {result.get('pid')} was not a trench process)."
+            ),
         }.get(str(result.get("mode")), "Disengaged.")
         return {**result, "message": msg}
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+### Fixed
+- Disengage (`stop_owner`) refuses to signal a recycled OS PID that is not a trench process; clears the stale lock instead.
+
 ## 1.3.0 - Hop Receipt
 
 Local `trench receipt --json` prints chain hop types and enabled flags. Passwords and endpoints stay out of the receipt.
