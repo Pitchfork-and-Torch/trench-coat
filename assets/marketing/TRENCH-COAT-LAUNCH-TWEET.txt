@@ -1,0 +1,47 @@
+Launch / share tweets for Trench Coat v1.1.0 Velvet Collar (copy/paste)
+
+Link for preview (always use the landing URL so OG tags load):
+https://trenchcoat.jonbailey.xyz/
+
+Card image (served as og-card.png - 1200x630):
+https://trenchcoat.jonbailey.xyz/assets/og-card.png
+
+Regenerate card:
+  python scripts/render_og_card.py
+
+---
+
+PRIMARY (link post - X will pull large card from the URL)
+
+The rain has a new silhouette.
+
+Trench Coat v1.1.0 Velvet Collar is open source: a legal-first multi-hop privacy cloak.
+Local SOCKS -> Tor (and friends) -> fail-closed if the chain dies.
+
+Not a crime kit. Privacy as a right - for journalists, researchers, and careful people.
+
+https://trenchcoat.jonbailey.xyz/
+
+THE SHADOWS ARE YOUR ALLY
+
+#privacy #opensource #Tor #opsec
+
+---
+
+SHORT
+
+Trench Coat v1.1.0 - Velvet Collar.
+Legal-first multi-hop privacy. Fail-closed. Tor-aware. AGPL.
+
+https://trenchcoat.jonbailey.xyz/
+
+---
+
+THREAD STARTER
+
+1/ Trench Coat v1.1.0 Velvet Collar ships.
+
+What it is: a local multi-hop privacy cloak (CLI + Command Nexus).
+What it is not: Tor Browser, a crime toolkit, or magic anonymity.
+
+https://trenchcoat.jonbailey.xyz/
