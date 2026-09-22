@@ -31,17 +31,17 @@ EXT = {
     ".sh",
     ".xml",
 }
-# Built from codepoints so this file never contains mojibake itself
+# Built from codepoints so this file never contains mojibake itself.
 NEEDLES = [
-    "\u00e2\u0153",  # common âœ prefix when still double-wrong; also catch via explicit:
+    "\u00e2\u0153",  # broken prefix; explicit sequences below cover the rest
 ]
-# Explicit broken sequences as UTF-8 misreads of common symbols
+# Explicit broken sequences as UTF-8 misreads of common symbols.
 NEEDLES = [
-    bytes([0xE2, 0x80, 0x94]).decode("latin-1"),  # em dash mojibake â€”
-    bytes([0xE2, 0x9C, 0x85]).decode("latin-1"),  # checkmark mojibake âœ…
-    bytes([0xE2, 0x96, 0x91]).decode("latin-1"),  # block â–‘
-    bytes([0xE2, 0x94, 0x80]).decode("latin-1"),  # box â”€
-    bytes([0xE2, 0x86, 0x92]).decode("latin-1"),  # arrow â†’
+    bytes([0xE2, 0x80, 0x94]).decode("latin-1"),  # em dash mojibake
+    bytes([0xE2, 0x9C, 0x85]).decode("latin-1"),  # checkmark mojibake
+    bytes([0xE2, 0x96, 0x91]).decode("latin-1"),  # block mojibake
+    bytes([0xE2, 0x94, 0x80]).decode("latin-1"),  # box mojibake
+    bytes([0xE2, 0x86, 0x92]).decode("latin-1"),  # arrow mojibake
     "\ufffd",
 ]
 
