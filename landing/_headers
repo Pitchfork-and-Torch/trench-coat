@@ -46,3 +46,16 @@
 
 /projects-panel.js
   Cache-Control: public, max-age=300
+
+/apple-touch-icon.png
+  Cache-Control: public, max-age=604800
+  Content-Type: image/png
+
+/assets/apple-touch-icon.png
+  Cache-Control: public, max-age=604800
+  Content-Type: image/png
+
+/assets/favicon-32.png
+  Cache-Control: public, max-age=604800
+  Content-Type: image/png
+
