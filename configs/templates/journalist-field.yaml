@@ -1,0 +1,35 @@
+meta:
+  title: Journalist Field
+  author: Pitchfork-and-Torch
+  description: Self-hosted → VPN → Tor with decoy traffic posture.
+  tags: [field, fail-closed, decoy]
+
+chain:
+  name: community-journalist-field
+  profile: journalist
+  description: Community template for field correspondents.
+  hops:
+    - id: relay-self
+      type: self_hosted
+      host: 127.0.0.1
+      port: 1081
+      label: Self-hosted relay (configure me)
+    - id: vpn-mid
+      type: socks5
+      host: 127.0.0.1
+      port: 1088
+      label: Jurisdiction-diverse VPN
+    - id: tor-final
+      type: tor
+      host: 127.0.0.1
+      port: 9050
+      label: Tor final
+  policy:
+    min_hops: 3
+    max_hops: 7
+    rotation_minutes: 20
+    kill_switch: true
+    strict_kill_switch: true
+    decoy_traffic: true
+    fail_closed: true
+  tags: [community, field]
